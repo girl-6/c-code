@@ -20,7 +20,9 @@ void SeqListPopBack(SeqList* psl);
 void SeqListPushFront(SeqList* psl, SLDataType x);
 void SeqListPopFront(SeqList* psl);
 
+//SLDataType SeqListFind(SeqList* psl, SLDataType x);
 void SeqListFind(SeqList* psl, SLDataType x);
+
 void SeqListInsert(SeqList* psl, size_t pos, SLDataType x);
 void SeqListErase(SeqList* psl, size_t pos);
 void SeqListRemove(SeqList* psl, SLDataType x);

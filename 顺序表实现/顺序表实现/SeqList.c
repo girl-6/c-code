@@ -76,25 +76,34 @@ void SeqListPopFront(SeqList* psl)
 	psl->_size--;
 }
 
+//SLDataType SeqListFind(SeqList* psl, SLDataType x)
+//{
+//	assert(psl);
+//	for (size_t i = 0; i < psl->_size ;i++)
+//	{
+//		if (psl->_array[i] == x)
+//		{
+//			return i;
+//		}
+//	}
+//	return -1;
+//}
 void SeqListFind(SeqList* psl, SLDataType x)
 {
 	assert(psl);
-	size_t find = 0;
-	for (size_t i = 0; i < psl->_size ;i++)
+	int i = 0;
+	for (size_t i = 0; i < psl->_size; i++)
 	{
 		if (psl->_array[i] == x)
 		{
-			find = i;
+			i = 10;
+			printf("找到了！\n");
 		}
 	}
-	find = -1;
-	if (find< 0)
+	if (i != 10)
 	{
 		printf("找不到！\n");
 	}
-	else
-		printf("找到了！\n");
-
 }
 
 void SeqListInsert(SeqList* psl, size_t pos, SLDataType x)
@@ -159,6 +168,7 @@ void SeqListPrint(SeqList* psl)
 void SeqListTest1()
 {
 	SeqList s1;
+	SLDataType find = 0;
 	SeqListInit(&s1, 10);
 	SeqListPushBack(&s1, 1);
 	SeqListPushBack(&s1, 2);
@@ -187,9 +197,20 @@ void SeqListTest1()
 	printf("头删的结果是：");
 	SeqListPrint(&s1);
 
-	printf("找%d 的结果是：",7);
-	SeqListFind(&s1, 7);
-
+	/*printf("找%d 的结果是：",7);
+	find=SeqListFind(&s1, 7);
+	if (find< 0)
+	{
+		printf("找不到！\n");
+	}
+	else
+	{
+		printf("找到了！\n");
+	}*/
+	printf("找%d 的结果是：", 11);
+    SeqListFind(&s1, 11);
+	
+	
 	SeqListInsert(&s1, 4, 1);
 	printf("在下标为4位置插入1的结果是：");
 	SeqListPrint(&s1);
@@ -212,6 +233,8 @@ void SeqListTest1()
 
 	printf("二分查找5的结果：");
 	SeqListBinaryFind(&s1, 5);
+	printf("二分查找11的结果：");
+	SeqListBinaryFind(&s1, 11);
 
 	SeqListRemoveAll(&s1, 0);
 	printf("删除所有0的结果是：");
