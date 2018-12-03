@@ -1,6 +1,5 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include "Common.h"
-#define N 7   //需要找的数字
 #pragma once
 typedef int SLDataType;
 
