@@ -14,8 +14,8 @@ int main()
 	//printf("\n");
 	//printf("\n");
 	//printf("\n");
-	//printf("        *******栈的实现******\n");
-	//TestStack();
+	/*printf("        *******栈的实现******\n");
+	TestStack();*/
 
 	system("pause");
 	return 0;

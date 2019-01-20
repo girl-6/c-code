@@ -153,6 +153,7 @@ int BinaryTreeComplete(BTNode* root)
 		}
 		return 1;
 	}	
+	return 0;
 }
 
 void BinaryPrevOrder(BTNode* root)

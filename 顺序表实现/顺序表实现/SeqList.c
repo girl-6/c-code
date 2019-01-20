@@ -27,7 +27,7 @@ void CheckCapacity(SeqList* psl)
 	if (psl->_size == psl ->_capacity)
 	{
 		psl->_capacity *= 2;
-		psl->_array = realloc(psl->_array, psl->_capacity*sizeof(SLDataType));//需要传递字节数而不是笼统的某个类型个数
+		psl->_array = realloc(psl->_array, psl->_capacity*sizeof(SLDataType));//需要传字节数
 		assert(psl->_array);                                                        
 	}
 }
@@ -53,7 +53,8 @@ void SeqListPushFront(SeqList* psl, SLDataType x)
 {
 	assert(psl);
 	CheckCapacity(psl);
-	int end = psl->_size - 1;//不能用size_t，因为它无符号，故永远不可能<0，循环无法停止
+	int end = psl->_size - 1;
+	//不能用size_t定义end，因为它无符号，故永远不可能<0，循环无法停止
 	while (end>=0)
 	{
 		psl->_array[end + 1] = psl->_array[end];
@@ -88,22 +89,17 @@ void SeqListPopFront(SeqList* psl)
 //	}
 //	return -1;
 //}
-void SeqListFind(SeqList* psl, SLDataType x)
+int  SeqListFind(SeqList* psl, SLDataType x)
 {
 	assert(psl);
-	int i = 0;
 	for (size_t i = 0; i < psl->_size; i++)
 	{
 		if (psl->_array[i] == x)
 		{
-			i = 10;
-			printf("找到了！\n");
+			return 1;
 		}
 	}
-	if (i != 10)
-	{
-		printf("找不到！\n");
-	}
+	return 0;
 }
 
 void SeqListInsert(SeqList* psl, size_t pos, SLDataType x)
@@ -208,7 +204,10 @@ void SeqListTest1()
 		printf("找到了！\n");
 	}*/
 	printf("找%d 的结果是：", 11);
-    SeqListFind(&s1, 11);
+    int y=SeqListFind(&s1, 11);
+	if (y == 1)
+		printf("找到了！\n");
+	else printf("找不到！  \n");
 	
 	
 	SeqListInsert(&s1, 4, 1);
@@ -232,15 +231,27 @@ void SeqListTest1()
 	SeqListPrint(&s1);
 
 	printf("二分查找5的结果：");
-	SeqListBinaryFind(&s1, 5);
+	int s3 = SeqListBinaryFind(&s1, 5);
+	if (s3 == 1)
+		printf("找到了！  \n");
+	else
+		printf("找不到！  \n");
 	printf("二分查找11的结果：");
-	SeqListBinaryFind(&s1, 11);
+	int s2 = SeqListBinaryFind(&s1, 11);
+	if (s2 == 1)
+		printf("找到了！  \n");
+	else
+		printf("找不到！  \n");
 
 	SeqListRemoveAll(&s1, 0);
 	printf("删除所有0的结果是：");
 	SeqListPrint(&s1);
 
-    SeqListEmpty(&s1);
+    int f=SeqListEmpty(&s1);
+	if (f == 0)
+		printf("顺序表已空！  \n");
+	else
+		printf("顺序表未空！  \n");
 
 	SeqListDestory(&s1);
 
@@ -270,7 +281,7 @@ void SeqListBubbleSort(SeqList* psl)
 	}
 }
 
-void SeqListBinaryFind(SeqList* psl, SLDataType x)
+int SeqListBinaryFind(SeqList* psl, SLDataType x)
 {
 	assert(psl);
 	size_t left = 0;
@@ -288,15 +299,11 @@ void SeqListBinaryFind(SeqList* psl, SLDataType x)
 		}
 		else 
 		{
-			left = 10;//为了“找不到”的条件
-			printf("找到了！\n");
+			return 1;
 			break;
 		}
 	}
-	if (left!=10)
-	{
-		printf("找不到！\n");
-	}
+	return 0;
 }
 
 // 本题要求：时间复杂度：O(N) 空间复杂度 O(1) 
@@ -331,13 +338,13 @@ void SeqListRemoveAll(SeqList* psl, SLDataType x)
 	psl->_size = dst;*/
 }
 
-void SeqListEmpty(SeqList* psl)
+int SeqListEmpty(SeqList* psl)
 {
 	assert(psl);
 	if (psl->_size == 0)
 	{
-		printf("该结构体为空！\n");
+		return  0;
 	}
 	else
-		printf("该结构体未空！\n");
+		return 1;
 }

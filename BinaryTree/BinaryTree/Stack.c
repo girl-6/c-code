@@ -69,25 +69,25 @@ void StackPrint(Stack* ps)
 	printf("\n");
 }
 
-/*void TestStack()
-{
-	Stack st;
-	StackInit(&st);
-	printf("初始化完成！ \n");
-	printf("尾插的结果是：");
-	StackPush(&st, 1);
-	StackPush(&st, 2);
-	StackPush(&st, 3);
-	StackPush(&st, 3);
-	StackPrint(&st);
-	printf("尾删的结果是：");
-	StackPop(&st);
-	StackPrint(&st);
-	printf("栈顶元素是： %d\n", StackTop(&st));
-	STDataType i=StackEmpty(&st);
-	if (i == 0) printf("栈为空！\n");
-	else printf("栈未空！ \n");
-	printf("栈内元素有%d 个\n", StackSize(&st));
-	StackDestory(&st);
-	printf("销毁成功！ \n");
-}*/
+//void TestStack()
+//{
+//	Stack st;
+//	StackInit(&st);
+//	printf("初始化完成！ \n");
+//	printf("尾插的结果是：");
+//	StackPush(&st, 1);
+//	StackPush(&st, 2);
+//	StackPush(&st, 3);
+//	StackPush(&st, 3);
+//	StackPrint(&st);
+//	printf("尾删的结果是：");
+//	StackPop(&st);
+//	StackPrint(&st);
+//	printf("栈顶元素是： %d\n", StackTop(&st));
+//	STDataType i=StackEmpty(&st);
+//	if (i == 0) printf("栈为空！\n");
+//	else printf("栈未空！ \n");
+//	printf("栈内元素有%d 个\n", StackSize(&st));
+//	StackDestory(&st);
+//	printf("销毁成功！ \n");
+//}
