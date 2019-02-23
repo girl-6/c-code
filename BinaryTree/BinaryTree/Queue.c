@@ -1,6 +1,8 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include "Tree.h"
 
+//用于层序遍历和判断完全二叉树
+
 void QueueInit(Qu* pq)
 {
 	QDataType x = 0;

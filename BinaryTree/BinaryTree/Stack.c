@@ -1,6 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include "Tree.h"
 
+//用于二叉树的非递归遍历
 void StackInit(Stack* ps)
 {
 	assert(ps);
