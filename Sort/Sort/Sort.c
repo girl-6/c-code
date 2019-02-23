@@ -88,6 +88,7 @@ void sortPrint(int* a, int n)
 	printf("\n");
 }
 
+//≤Â»Î≈≈–Ú
 void InsertSort(int* a, int n)
 {
 	for (int i = 0; i < n - 1; i++)
@@ -107,6 +108,7 @@ void InsertSort(int* a, int n)
 	}
 }
 
+//œ£∂˚≈≈–Ú
 void ShellSort(int* a, int n)
 {
 	int gap = n;
@@ -131,6 +133,7 @@ void ShellSort(int* a, int n)
 	}
 }
 
+//—°‘Ò≈≈–Ú
 void SelectSort(int* a, int n)
 {
 	int begin = 0;
@@ -155,6 +158,7 @@ void SelectSort(int* a, int n)
 	}
 }
 
+//œÚœ¬µ˜’˚À„∑®--∂—≈≈–Ú
 void AdjustDown(int* a, int n, int parent)
 {
 	int son = 2 * parent + 1;
@@ -186,6 +190,7 @@ void HeapSort(int* a, int n)
 	}
 }
 
+//√∞≈›≈≈–Ú
 void BubbleSort(int* a, int n)
 {
 	int end = n - 1;
@@ -289,6 +294,7 @@ int PartSort4(int* a, int begin,int end)
 	return prev;
 }
 
+//øÏÀŸ≈≈–Ú
 void QuickSort(int* a, int left, int right)
 {
 	if (left >= right)
@@ -349,6 +355,7 @@ void QSort(int* a, int left, int right)
 	}
 }
 
+//πÈ≤¢≈≈–Ú
 void _MergeSort(int* a, int begin, int end, int* tmp)
 {
 	if (begin >= end)  return;
@@ -378,6 +385,7 @@ void MergeSort(int* a, int n)
 	free(tmp);
 } 
 
+//º∆ ˝≈≈–Ú
 void CountSort(int* a, int n)
 {
 	int max = a[0], min = a[0];
