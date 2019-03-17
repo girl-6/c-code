@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <assert.h>
 #include <iostream>
+#include <string.h>
 using namespace std;
 
 namespace LY
@@ -25,7 +26,7 @@ namespace LY
 		{
 			_start = new T[v.Capacity()];
 			//memcpy(_start, v._start, sizeof(T)*v.Size());   这里是浅拷贝
-			for (size_t i = 0; i < Size(); ++i)
+			for (size_t i = 0; i < v.Size(); ++i)
 			{
 				_start[i] = v._start[i];
 			}
@@ -42,7 +43,7 @@ namespace LY
 		void Swap(Vector <T> &v)
 		{
 			std::swap(_start, v._start);
-			std::swp(_finish, v._finish);
+			std::swap(_finish, v._finish);
 			std::swap(_endOfStorage, v._endOfStorage);
 		}
 
@@ -86,7 +87,8 @@ namespace LY
 		{
 			if (n <= Size())
 			{
-				_finish = _start + Size();
+				_finish = _start + n;
+				return;
 			}
 			else
 			{
@@ -106,7 +108,7 @@ namespace LY
 		{
 			Insert(end(),x);
 		}
-		void Insert(iterator pos, const T& x)
+		void Insert(iterator pos, const T& x)   //在pos 的前面插入
 		{
 			assert(pos <= _finish);
 			size_t posindex = pos - _start;
@@ -131,7 +133,7 @@ namespace LY
 			//--_finish;
 			Erase(--end());
 		}
-		iterator Erase(iterator pos)
+		iterator Erase(iterator pos)    //删除POS 位置
 		{
 			assert(pos < end());
 			iterator next = pos;
@@ -150,11 +152,11 @@ namespace LY
 			return _start[pos];
 		}
 
-		/*const T&operator[](size_t pos)const
+		const T&operator[](size_t pos)const
 		{
 		assert(pos < Size());
 		return _start[pos];
-		}*/
+		}
 
 		size_t Size()const { return _finish - _start; }
 		size_t Capacity() const { return _endOfStorage - _start; }
@@ -172,14 +174,16 @@ namespace LY
 		v1.PushBack(2);
 		v1.PushBack(3);
 		v1.PushBack(4);
-		/*for (size_t i = 0; i < v1.Size(); i++)
+		cout << "尾插四个数：  ";
+		for (size_t i = 0; i < v1.Size(); i++)
 		{
-			cout << v1[i] << "  ";
+			cout << v1[i] << " ";
 		}
-		cout << endl;*/
+		cout << endl;
 
 		v1.Resize(3);
 		Vector<int>::iterator it1 = v1.begin();
+		cout << "Resize(3)：  ";
 		while (it1 != v1.end())
 		{
 			cout << *it1 << " ";
@@ -188,13 +192,14 @@ namespace LY
 		cout << endl;
 
 		v1.Resize(10, 5);
+		cout << "Resize(10, 5)：  ";
 		for (auto e : v1)
 		{
 			cout << e << " ";
 		}
 		cout << endl;
 	}
-	oid TestVector2()
+	void Test2()
 	{
 		Vector<int> v1;
 		v1.PushBack(1);
@@ -208,9 +213,15 @@ namespace LY
 		{
 			v1.Insert(pos, 30);
 		}
+		cout << "插入数据后： ";
+		for (size_t i = 0; i < v1.Size(); ++i)
+		{
+			cout << v1[i] << " ";
+		}
+		cout << endl;
 		pos = std::find(v1.begin(), v1.end(), 3);
 		v1.Erase(pos);
-
+		cout << "删除数据后： ";
 		for (size_t i = 0; i < v1.Size(); ++i)
 		{
 			cout << v1[i] << " ";
@@ -218,7 +229,7 @@ namespace LY
 		cout << endl;
 	}
 
-	void TestVector3()
+	void Test3()
 	{
 		Vector<int> v1;
 		v1.PushBack(1);
@@ -227,7 +238,7 @@ namespace LY
 		v1.PushBack(4);
 		v1.PushBack(5);
 
-		Vector<int> copy = v1; // copy(v1)
+		Vector<int> copy = v1;    // copy(v1)
 		for (auto e : copy)
 		{
 			cout << e << " ";
@@ -246,7 +257,7 @@ namespace LY
 		cout << endl;
 	}
 
-	void TestVector4()
+	/*void Test4()
 	{
 		Vector<std::string> v;
 		v.PushBack("111");
@@ -260,11 +271,8 @@ namespace LY
 		v.PushBack("333");
 		v.PushBack("333");
 		v.PushBack("333");
-		for (auto e : v)
-		{
-			cout << e << " ";
-		}
+		for(auto e:v)
+		cout<<e<<" ";
 		cout << endl;
-	}
-
+	}*/
 }

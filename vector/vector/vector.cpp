@@ -4,8 +4,7 @@
 
 int main()
 {
-	//LY::Test1();
-	LY::TestVector2();
+	LY::Test3();
 	system("pause");
 	return 0;
 }
